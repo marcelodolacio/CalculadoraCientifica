@@ -141,36 +141,53 @@ public class MainActivity extends AppCompatActivity {
         btn_square.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                String val = tv_main.getText().toString();
+//                tv_main.setText(val+btn_square.getText().toString());
+
                 String val = tv_main.getText().toString();
-                tv_main.setText(val+btn_square.getText().toString());
+                double r = Math.sqrt(Double.parseDouble(val));
+                String result = String.valueOf(r);
+                tv_main.setText(result);
             }
         });
         btn_clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String val = tv_main.getText().toString();
-                tv_main.setText(val+btn_clear.getText().toString());
+                tv_main.setText("");
+                tv_secundary.setText("");
             }
         });
         btn_backspace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String val = tv_main.getText().toString();
-                tv_main.setText(val+btn_backspace.getText().toString());
+                val = val.substring(0, val.length() - 1);
+                tv_main.setText(val);
             }
         });
         btn_percent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                String val = tv_main.getText().toString();
+//                tv_main.setText(val+btn_percent.getText().toString());
+
                 String val = tv_main.getText().toString();
-                tv_main.setText(val+btn_percent.getText().toString());
+                val = val.substring(0, val.length() - 1);
+                tv_main.setText(val);
             }
         });
         btn_division.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                String val = tv_main.getText().toString();
+//                tv_main.setText(val+btn_division.getText().toString());
+
                 String val = tv_main.getText().toString();
-                tv_main.setText(val+btn_division.getText().toString());
+                if (!val.equals(""))
+                {
+                    tv_main.setText(val+btn_division.getText().toString());
+                }
             }
         });
 
@@ -206,8 +223,14 @@ public class MainActivity extends AppCompatActivity {
         btn_multiplicate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                String val = tv_main.getText().toString();
+//                tv_main.setText(val+btn_multiplicate.getText().toString());
                 String val = tv_main.getText().toString();
-                tv_main.setText(val+btn_multiplicate.getText().toString());
+                char last = val.charAt(val.length() -1);
+                if (!val.equals(""))
+                {
+                    tv_main.setText(val+btn_multiplicate.getText().toString());
+                }
             }
         });
 
@@ -243,8 +266,15 @@ public class MainActivity extends AppCompatActivity {
         btn_minus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                String val = tv_main.getText().toString();
+//                tv_main.setText(val+btn_minus.getText().toString());
+
                 String val = tv_main.getText().toString();
-                tv_main.setText(val+btn_minus.getText().toString());
+                char last = val.charAt(val.length() -1);
+                if (last!='-')
+                {
+                    tv_main.setText(val+btn_minus.getText().toString());
+                }
             }
         });
 
@@ -280,8 +310,15 @@ public class MainActivity extends AppCompatActivity {
         btn_plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                String val = tv_main.getText().toString();
+//                tv_main.setText(val+btn_plus.getText().toString());
+
                 String val = tv_main.getText().toString();
-                tv_main.setText(val+btn_plus.getText().toString());
+                if (!val.equals(""))
+                {
+                    tv_main.setText(val+btn_plus.getText().toString());
+                }
+
             }
         });
 
@@ -304,11 +341,20 @@ public class MainActivity extends AppCompatActivity {
         btn_equal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                String val = tv_main.getText().toString();
+//                tv_main.setText(val+btn_equal.getText().toString());
+
                 String val = tv_main.getText().toString();
-                tv_main.setText(val+btn_equal.getText().toString());
+                String replacedString = val.replace('÷','/').replace('×', '*');
+                double result = Eval.eval(replacedString);
+                String r = String.valueOf(result);
+                tv_main.setText(r);
+                tv_secundary.setText(val);
             }
         });
 
 
     }
+
+
 }
