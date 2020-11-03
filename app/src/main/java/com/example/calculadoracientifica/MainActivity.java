@@ -81,22 +81,20 @@ public class MainActivity extends AppCompatActivity {
         btn_sin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String val = tv_main.getText().toString();
-                tv_main.setText(val+btn_sin.getText().toString());
+
+                tv_main.setText(tv_main.getText()+"sin");
             }
         });
         btn_cos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String val = tv_main.getText().toString();
-                tv_main.setText(val+btn_cos.getText().toString());
+                tv_main.setText(tv_main.getText()+"cos");
             }
         });
         btn_tan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String val = tv_main.getText().toString();
-                tv_main.setText(val+btn_tan.getText().toString());
+                tv_main.setText(tv_main.getText()+"tan");
             }
         });
 
@@ -104,8 +102,10 @@ public class MainActivity extends AppCompatActivity {
         btn_elevate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String val = tv_main.getText().toString();
-                tv_main.setText(val+btn_elevate.getText().toString());
+                double d = Double.parseDouble(tv_main.getText().toString());
+                double square = d*d;
+                tv_main.setText(String.valueOf(square));
+                tv_secundary.setText(d+"²");
             }
         });
         btn_lg.setOnClickListener(new View.OnClickListener() {
@@ -125,15 +125,13 @@ public class MainActivity extends AppCompatActivity {
         btn_Lparentheses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String val = tv_main.getText().toString();
-                tv_main.setText(val+btn_Lparentheses.getText().toString());
+                tv_main.setText(tv_main.getText()+"(");
             }
         });
         btn_Rparentheses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String val = tv_main.getText().toString();
-                tv_main.setText(val+btn_Rparentheses.getText().toString());
+                tv_main.setText(tv_main.getText()+")");
             }
         });
 
@@ -141,8 +139,6 @@ public class MainActivity extends AppCompatActivity {
         btn_square.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                String val = tv_main.getText().toString();
-//                tv_main.setText(val+btn_square.getText().toString());
 
                 String val = tv_main.getText().toString();
                 double r = Math.sqrt(Double.parseDouble(val));
@@ -169,8 +165,6 @@ public class MainActivity extends AppCompatActivity {
         btn_percent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                String val = tv_main.getText().toString();
-//                tv_main.setText(val+btn_percent.getText().toString());
 
                 String val = tv_main.getText().toString();
                 val = val.substring(0, val.length() - 1);
@@ -180,8 +174,6 @@ public class MainActivity extends AppCompatActivity {
         btn_division.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                String val = tv_main.getText().toString();
-//                tv_main.setText(val+btn_division.getText().toString());
 
                 String val = tv_main.getText().toString();
                 if (!val.equals(""))
@@ -195,8 +187,10 @@ public class MainActivity extends AppCompatActivity {
         btn_fatorial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String val = tv_main.getText().toString();
-                tv_main.setText(val+btn_fatorial.getText().toString());
+                int val = Integer.parseInt(tv_main.getText().toString());
+                int fact = factorial(val);
+                tv_main.setText(String.valueOf(fact));
+                tv_secundary.setText(val+"!");
             }
         });
         btn_7.setOnClickListener(new View.OnClickListener() {
@@ -223,8 +217,6 @@ public class MainActivity extends AppCompatActivity {
         btn_multiplicate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                String val = tv_main.getText().toString();
-//                tv_main.setText(val+btn_multiplicate.getText().toString());
                 String val = tv_main.getText().toString();
                 char last = val.charAt(val.length() -1);
                 if (!val.equals(""))
@@ -266,9 +258,6 @@ public class MainActivity extends AppCompatActivity {
         btn_minus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                String val = tv_main.getText().toString();
-//                tv_main.setText(val+btn_minus.getText().toString());
-
                 String val = tv_main.getText().toString();
                 char last = val.charAt(val.length() -1);
                 if (last!='-')
@@ -282,8 +271,7 @@ public class MainActivity extends AppCompatActivity {
         btn_pi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String val = tv_main.getText().toString();
-                tv_main.setText(val+btn_pi.getText().toString());
+                tv_main.setText(tv_main.getText()+btn_pi.getText().toString());
             }
         });
         btn_1.setOnClickListener(new View.OnClickListener() {
@@ -310,9 +298,6 @@ public class MainActivity extends AppCompatActivity {
         btn_plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                String val = tv_main.getText().toString();
-//                tv_main.setText(val+btn_plus.getText().toString());
-
                 String val = tv_main.getText().toString();
                 if (!val.equals(""))
                 {
@@ -341,9 +326,6 @@ public class MainActivity extends AppCompatActivity {
         btn_equal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                String val = tv_main.getText().toString();
-//                tv_main.setText(val+btn_equal.getText().toString());
-
                 String val = tv_main.getText().toString();
                 String replacedString = val.replace('÷','/').replace('×', '*');
                 double result = Eval.eval(replacedString);
@@ -356,5 +338,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //METODO QUE FAZ O FATORIAL
+    int factorial(int n)
+    {
+        return (n == 1 || n == 0) ? 1 : n * factorial(n - 1);
+
+    }
 
 }
