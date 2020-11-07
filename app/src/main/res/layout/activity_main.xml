@@ -58,32 +58,32 @@
                 android:orientation="horizontal">
                 <LinearLayout
                     android:orientation="horizontal"
-                    android:weightSum="5"
+                    android:weightSum="3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <Button
-                        android:id="@+id/btn_2nd"
-                        android:text="2nd"
-                        android:textSize="20sp"
-                        android:background="#fff"
-                        android:textColor="#ffa500"
-                        android:layout_weight="1"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+<!--                    <Button-->
+<!--                        android:id="@+id/btn_2nd"-->
+<!--                        android:text="2nd"-->
+<!--                        android:textSize="20sp"-->
+<!--                        android:background="#fff"-->
+<!--                        android:textColor="#ffa500"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent">-->
 
-                    </Button>
-                    <Button
-                        android:id="@+id/btn_deg"
-                        android:text="deg"
-                        android:textSize="20sp"
-                        android:background="#fff"
-                        android:textColor="#ffa500"
-                        android:layout_weight="1"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+<!--                    </Button>-->
+<!--                    <Button-->
+<!--                        android:id="@+id/btn_deg"-->
+<!--                        android:text="deg"-->
+<!--                        android:textSize="20sp"-->
+<!--                        android:background="#fff"-->
+<!--                        android:textColor="#ffa500"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent">-->
 
-                    </Button>
+<!--                    </Button>-->
                     <Button
                         android:id="@+id/btn_sin"
                         android:text="sin"
@@ -128,7 +128,7 @@
                 android:orientation="horizontal">
                 <LinearLayout
                     android:orientation="horizontal"
-                    android:weightSum="5"
+                    android:weightSum="4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -156,18 +156,18 @@
                         android:layout_height="match_parent">
 
                     </Button>
-                    <Button
-                        android:id="@+id/btn_ln"
-                        android:text="ln"
-                        android:textAllCaps="false"
-                        android:textSize="20sp"
-                        android:background="#fff"
-                        android:textColor="#ffa500"
-                        android:layout_weight="1"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+<!--                    <Button-->
+<!--                        android:id="@+id/btn_ln"-->
+<!--                        android:text="ln"-->
+<!--                        android:textAllCaps="false"-->
+<!--                        android:textSize="20sp"-->
+<!--                        android:background="#fff"-->
+<!--                        android:textColor="#ffa500"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent">-->
 
-                    </Button>
+<!--                    </Button>-->
                     <Button
                         android:id="@+id/btn_Lparentheses"
                         android:text="("

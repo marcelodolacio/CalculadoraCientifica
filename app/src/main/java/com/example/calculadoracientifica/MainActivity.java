@@ -22,14 +22,14 @@ public class MainActivity extends AppCompatActivity {
         tv_secundary = findViewById(R.id.tv_secundary);
 
         // RECUPERANDO PELO (COMPONENTE BUTTON)
-        btn_2nd = findViewById(R.id.btn_2nd);  // OK
-        btn_deg = findViewById(R.id.btn_deg); // OK
+//        btn_2nd = findViewById(R.id.btn_2nd);  // OK
+//        btn_deg = findViewById(R.id.btn_deg); // OK
         btn_sin = findViewById(R.id.btn_sin); // OK
         btn_cos = findViewById(R.id.btn_cos); // OK
         btn_tan = findViewById(R.id.btn_tan); // OK
         btn_elevate = findViewById(R.id.btn_elevate); // OK
         btn_lg = findViewById(R.id.btn_lg); // OK
-        btn_ln = findViewById(R.id.btn_ln);// OK
+//        btn_ln = findViewById(R.id.btn_ln);// OK
         btn_Lparentheses = findViewById(R.id.btn_Lparentheses);// OK
         btn_Rparentheses = findViewById(R.id.btn_Rparentheses);// OK
         btn_square = findViewById(R.id.btn_square);// OK
@@ -64,20 +64,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //PRIMEIRA LINHA DE BOTOES
-        btn_2nd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String val = tv_main.getText().toString();
-                tv_main.setText(val+btn_2nd.getText().toString());
-            }
-        });
-        btn_deg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String val = tv_main.getText().toString();
-                tv_main.setText(val+btn_deg.getText().toString());
-            }
-        });
+//        btn_2nd.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String val = tv_main.getText().toString();
+//                tv_main.setText(val+btn_2nd.getText().toString());
+//            }
+//        });
+//        btn_deg.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String val = tv_main.getText().toString();
+//                tv_main.setText(val+btn_deg.getText().toString());
+//            }
+//        });
         btn_sin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,10 +102,7 @@ public class MainActivity extends AppCompatActivity {
         btn_elevate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                double d = Double.parseDouble(tv_main.getText().toString());
-                double square = d*d;
-                tv_main.setText(String.valueOf(square));
-                tv_secundary.setText(d+"²");
+                tv_main.setText(tv_main.getText()+"x^y");;
             }
         });
         btn_lg.setOnClickListener(new View.OnClickListener() {
@@ -115,13 +112,13 @@ public class MainActivity extends AppCompatActivity {
                 tv_main.setText(val+btn_lg.getText().toString());
             }
         });
-        btn_ln.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String val = tv_main.getText().toString();
-                tv_main.setText(val+btn_ln.getText().toString());
-            }
-        });
+//        btn_ln.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                String val = tv_main.getText().toString();
+//                tv_main.setText(val+btn_ln.getText().toString());
+//            }
+//        });
         btn_Lparentheses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -271,7 +268,8 @@ public class MainActivity extends AppCompatActivity {
         btn_pi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv_main.setText(tv_main.getText()+btn_pi.getText().toString());
+               // tv_main.setText(tv_main.getText()+btn_pi.getText().toString());
+                tv_main.setText(tv_main.getText()+"3.14");
             }
         });
         btn_1.setOnClickListener(new View.OnClickListener() {
@@ -326,12 +324,24 @@ public class MainActivity extends AppCompatActivity {
         btn_equal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String val = tv_main.getText().toString();
-                String replacedString = val.replace('÷','/').replace('×', '*');
-                double result = Eval.eval(replacedString);
-                String r = String.valueOf(result);
-                tv_main.setText(r);
-                tv_secundary.setText(val);
+
+                if(tv_main.getText().toString().contains("x^y")){
+
+                    String expression = tv_main.getText().toString();
+                    String aux = expression.replace("x^y", "Elevate");
+                    String[] array = aux.split("Elevate");
+                    double x1 = Double.parseDouble(array[0]);
+                    double x2 = Double.parseDouble(array[1]);
+                    tv_main.setText(Math.pow(x1, x2) + "");
+                }else {
+                    String val = tv_main.getText().toString();
+                    String replacedString = val.replace('÷','/').replace('×', '*');
+                    double result = Eval.eval(replacedString);
+                    String r = String.valueOf(result);
+                    tv_main.setText(r);
+                    tv_secundary.setText(val);
+                }
+
             }
         });
 
