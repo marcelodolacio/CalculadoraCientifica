@@ -184,10 +184,15 @@ public class MainActivity extends AppCompatActivity {
         btn_fatorial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int val = Integer.parseInt(tv_main.getText().toString());
-                int fact = factorial(val);
-                tv_main.setText(String.valueOf(fact));
-                tv_secundary.setText(val+"!");
+                if(tv_main.getText().toString().contains(".")){
+                    tv_main.setText("error! only integer numbers");
+                }else{
+                    int val = Integer.parseInt(tv_main.getText().toString());
+                    int fact = factorial(val);
+                    tv_main.setText(String.valueOf(fact));
+                    tv_secundary.setText(val+"!");
+                }
+
             }
         });
         btn_7.setOnClickListener(new View.OnClickListener() {
@@ -333,6 +338,19 @@ public class MainActivity extends AppCompatActivity {
                     double x1 = Double.parseDouble(array[0]);
                     double x2 = Double.parseDouble(array[1]);
                     tv_main.setText(Math.pow(x1, x2) + "");
+                }else if(tv_main.getText().toString().contains("lg")){
+
+                    String expression = tv_main.getText().toString();
+
+                    String[] array = expression.split("lg");
+                    if(array[0].isEmpty()) {
+                        double aux = Double.parseDouble(array[1]);
+                        tv_main.setText(Math.log10(aux) + "");
+                    }else{
+                        double aux = Double.parseDouble(array[0]);
+                        tv_main.setText(Math.log10(aux) + "");
+                    }
+
                 }else {
                     String val = tv_main.getText().toString();
                     String replacedString = val.replace('÷','/').replace('×', '*');
