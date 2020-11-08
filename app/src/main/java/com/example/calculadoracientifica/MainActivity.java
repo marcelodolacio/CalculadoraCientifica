@@ -190,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
                     int val = Integer.parseInt(tv_main.getText().toString());
                     int fact = factorial(val);
                     tv_main.setText(String.valueOf(fact));
-                    tv_secundary.setText(val+"!");
+                    tv_secundary.setText(val+"!"+"\n");
                 }
 
             }
@@ -234,6 +234,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String val = tv_main.getText().toString();
                 tv_main.setText(val+btn_divisionX.getText().toString());
+                String[] array = val.split("1/x");
+                if(array[0].isEmpty()){
+                    tv_main.setText("error!");
+                }else{
+                    double x1 = Double.parseDouble(array[0]);
+                    tv_main.setText(1/x1 + "");
+                }
+
             }
         });
         btn_4.setOnClickListener(new View.OnClickListener() {
@@ -357,7 +365,7 @@ public class MainActivity extends AppCompatActivity {
                     double result = Eval.eval(replacedString);
                     String r = String.valueOf(result);
                     tv_main.setText(r);
-                    tv_secundary.setText(val);
+                    tv_secundary.setText(tv_secundary.getText().toString()+val+"\n");
                 }
 
             }
